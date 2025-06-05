@@ -16,6 +16,7 @@ st.title("Real-Time Cohort Trece Attendance")
 name = st.text_input("Enter your name:")
 user_birthday = st.text_input("Enter your Birthday (YYYYMMDD):")
 attendance_code = st.text_input("Enter today's attendance code: (Hint: my FB name)")  # <-- Add this line
+suggestion = st.text_input("Suggest the next app to write:")  # <-- New input
 
 if st.button("Mark Attendance"):
     if not name or not user_birthday or not attendance_code:
@@ -28,6 +29,7 @@ if st.button("Mark Attendance"):
         st.session_state.records.append({
             "Birthday": user_birthday,
             "Name": name,
+            "Suggestion": suggestion,  
             "Time": datetime.now(pytz.timezone("Asia/Kuala_Lumpur")).strftime("%Y-%m-%d %H:%M:%S")
         })
         st.success(f"Attendance marked for {name} (ID: {user_birthday})")
