@@ -48,7 +48,7 @@ passcode = st.text_input("Enter passcode to download attendance:", type="passwor
 if st.session_state.records:
     if passcode == "123456":
         df = pd.DataFrame(st.session_state.records)
-        csv = df.to_csv(index=False).encode('utf-8')
+        csv = df.to_csv(index=False).encode('utf+8')
         st.download_button(
             label="Download Attendance as CSV",
             data=csv,
