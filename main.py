@@ -23,8 +23,6 @@ if st.button("Mark Attendance"):
             "Time": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         })
         st.success(f"Attendance marked for {name} (ID: {user_id})")
-    else:
-        st.warning("Please enter your name and ID.")
 
 if st.button("View Attendance"):
     st.write("Attendance Records:")
