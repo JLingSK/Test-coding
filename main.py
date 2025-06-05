@@ -15,7 +15,7 @@ st.title("Real-Time Cohort Trece Attendance")
 
 name = st.text_input("Enter your name:")
 user_birthday = st.text_input("Enter your Birthday (YYYYMMDD):")
-attendance_code = st.text_input("Enter today's attendance code: (Hint: my FB name")  # <-- Add this line
+attendance_code = st.text_input("Enter today's attendance code: (Hint: my FB name)")  # <-- Add this line
 
 if st.button("Mark Attendance"):
     if not name or not user_id or not attendance_code:
