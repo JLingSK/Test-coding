@@ -11,7 +11,7 @@ DAILY_CODE = "cohort trece"  # <-- Change this code daily
 if 'records' not in st.session_state:
     st.session_state.records = []
 
-st.title("Real-Time Cohort Trece Attendance")
+st.title("Real-Time Attendance for Cohort Trece's Supporters")
 
 name = st.text_input("Enter your name:")
 user_birthday = st.text_input("Enter your Birthday (YYYYMMDD):")
