@@ -30,7 +30,7 @@ if st.button("Mark Attendance"):
             "Name": name,
             "Time": datetime.now(pytz.timezone("Asia/Kuala_Lumpur")).strftime("%Y-%m-%d %H:%M:%S")
         })
-        st.success(f"Attendance marked for {name} (ID: {user_id})")
+        st.success(f"Attendance marked for {name} (ID: {user_birthday})")
 
 # New section for viewing own attendance
 st.subheader("View Your Attendance")
