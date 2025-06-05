@@ -2,7 +2,7 @@ import streamlit as st
 
 st.set_page_config(page_title="TB Quest", layout="centered")
 
-st.title("🧭 TB PathQuest: Your Journey with Tuberculosis")
+st.title("🧭 TB Quest: 'Your' Journey with Tuberculosis")
 st.markdown("You are experiencing symptoms that might be tuberculosis. Your decisions will determine your fate—and others’ too.")
 
 # Initialize session state
