@@ -24,15 +24,25 @@ if st.button("Mark Attendance"):
         })
         st.success(f"Attendance marked for {name} (ID: {user_id})")
 
-if st.button("View Attendance"):
-    st.write("Attendance Records:")
-    if st.session_state.records:
-        df = pd.DataFrame(st.session_state.records)
-        st.write(df)
-    else:
-        st.write("No attendance records yet.")
+# New section for viewing own attendance
+st.subheader("View Your Attendance")
+view_id = st.text_input("Enter your ID to view your attendance:")
 
-# Passcode input for download
+if st.button("View My Attendance"):
+    if not view_id:
+        st.warning("Please enter your ID to view attendance.")
+    elif not view_id.isdigit():
+        st.warning("ID must be numbers only, without symbols or letters.")
+    else:
+        # Filter records for this ID
+        user_records = [rec for rec in st.session_state.records if rec["ID"] == view_id]
+        if user_records:
+            df = pd.DataFrame(user_records)
+            st.write(df)
+        else:
+            st.info("No attendance records found for this ID.")
+
+# Passcode input for download (admin only)
 passcode = st.text_input("Enter passcode to download attendance:", type="password")
 
 if st.session_state.records:
