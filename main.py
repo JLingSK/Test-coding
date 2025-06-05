@@ -3,6 +3,9 @@ import pandas as pd
 import pytz
 from datetime import datetime
 
+# Set your daily code here (change this value each day)
+DAILY_CODE = "ABC123"  # <-- Change this code daily
+  
 
 # Initialize attendance records in session state
 if 'records' not in st.session_state:
@@ -12,12 +15,15 @@ st.title("Real-Time Attendance System")
 
 name = st.text_input("Enter your name:")
 user_id = st.text_input("Enter your ID:")
+attendance_code = st.text_input("Enter today's attendance code:")  # <-- Add this line
 
 if st.button("Mark Attendance"):
-    if not name or not user_id:
-        st.warning("Please enter both your name and ID.")
+    if not name or not user_id or not attendance_code:
+        st.warning("Please enter your name, ID, and today's attendance code.")
     elif not user_id.isdigit():
         st.warning("ID must be numbers only, without symbols or letters.")
+    elif attendance_code != DAILY_CODE:
+        st.error("Invalid attendance code. Please get the correct code from the organizer.")
     else:
         st.session_state.records.append({
             "ID": user_id,
