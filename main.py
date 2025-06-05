@@ -39,11 +39,11 @@ view_birthday = st.text_input("Enter your birthday (YYYYMMDD) to view your atten
 if st.button("View My Attendance"):
     if not view_birthday:
         st.warning("Please enter your birthday (YYYYMMDD) to view attendance.")
-    elif not view_id.isdigit():
+    elif not view_birthday.isdigit():
         st.warning("Birthday must be numbers only, without symbols or letters.")
     else:
         # Filter records for this ID
-        user_records = [rec for rec in st.session_state.records if rec["ID"] == view_id]
+        user_records = [rec for rec in st.session_state.records if rec["Birthday"] == view_birthday]
         if user_records:
             df = pd.DataFrame(user_records)
             st.write(df)
