@@ -1,7 +1,8 @@
 import streamlit as st
 import pandas as pd
+import pytz
 from datetime import datetime
-from zoneinfo import ZoneInfo
+
 
 # Initialize attendance records in session state
 if 'records' not in st.session_state:
@@ -21,7 +22,7 @@ if st.button("Mark Attendance"):
         st.session_state.records.append({
             "ID": user_id,
             "Name": name,
-            "Time": datetime.now(ZoneInfo("Asia/Kuala_Lumpur")).strftime("%Y-%m-%d %H:%M:%S")
+            "Time": datetime.now(pytz.timezone("Asia/Kuala_Lumpur")).strftime("%Y-%m-%d %H:%M:%S")
         })
         st.success(f"Attendance marked for {name} (ID: {user_id})")
 
