@@ -20,7 +20,7 @@ attendance_code = st.text_input("Enter today's attendance code: (Hint: my FB nam
 if st.button("Mark Attendance"):
     if not name or not user_birthday or not attendance_code:
         st.warning("Please enter your name, birthday, and today's attendance code.")
-    elif not user_id.isdigit():
+    elif not user_birthday.isdigit():
         st.warning("Birthday must be numbers only, without symbols or letters.")
     elif attendance_code != DAILY_CODE:
         st.error("Invalid attendance code. Please get the correct code from the organizer.")
